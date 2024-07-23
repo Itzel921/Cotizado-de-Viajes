@@ -1,0 +1,179 @@
+<html>
+	<head>
+		<title>Hancock | Viajes seguros</title>
+		<meta charset= "UTF-8">
+	</head>
+		<link href= "Psb1.css"  rel="stylesheet" type= "text/css">
+
+	<body><center>
+	
+		<header>
+				<a href= "" class= "logo">
+					<img src= "logoHan.png" class= "logo-img"></a>
+			<nav>
+				<a href="" class= "nav-link">Iniciar sesión</a>
+				<a href="" class= "nav-link">Ayuda</a>
+			</nav>
+			
+		</header>
+		
+	<br><br>
+	
+		<p class="infobody"> 
+
+	<fieldset align="left">
+		<legend> <div class="infotitle">Shigatsu wa Kimi no Uso</div></legend><br>
+			
+		<form onsubmit="calculos();return false">
+	
+			<p>
+				<label for="n1"> *Escriba su nombre </label>&nbsp;
+					<input type="text" min="12" max="120" step="1" id="nombres" name="name">&nbsp;&nbsp;
+					
+				<label for="n1">y escriba sus apellidos </label>&nbsp;
+					<input type="text" min="12" max="120" step="1" id="apellidos" name="name">
+			</p>
+			
+			<p>
+				<label for="te1"> *¿A qué estado de la Republica Mexicana desea viajar?</label>&nbsp;
+					<input type="text" id="t1" name="estados" list="l1">
+						<datalist id="l1">
+							<option>Aguascalientes</option>
+							<option>Baja California</option>
+							<option>Baja California Sur</option>
+							<option>Campeche</option>
+							<option>Coahuila</option>
+							<option>Colima</option>
+							<option>Chiapas</option>
+							<option>Chihuahua</option>
+							<option>Durango</option>
+							<option>Distrito Federal</option>
+							<option>Guanajuato</option>
+							<option>Guerrero</option>
+							<option>Hidalgo</option>
+							<option>Jalisco</option>
+							<option>Mexico</option>
+							<option>Michoacan</option>
+							<option>Morelos</option>
+							<option>Nayarit</option>
+							<option>Nuevo Leon</option>
+							<option>Oaxaca</option>
+							<option>Puebla</option>
+							<option>Queretaro</option>
+							<option>Quintana Roo</option>
+							<option>San Luis Potosi</option>
+							<option>Sinaloa</option>
+							<option>Sonora</option>
+							<option>Tabasco</option>
+							<option>Tamaulipas</option>
+							<option>Veracruz</option>
+							<option>Yucatan</option>
+							<option>Zacatecas</option></datalist>
+					
+			</p>
+			<p>
+				<label for="transporte">*Selecciona el medio de transporte que usará para trasladarse</label>
+					<select class="custom-select" id="transporte">
+						<option selected value="0"></option>
+						<option value="1">Autobus</option>
+						<option value="2">Tren</option>
+						<option value="3">Avion</option>
+					</select>
+			</p>
+			<p>
+				<label for="n1">*Número de acompañantes </label>&nbsp;
+					<input type="number" min="1" max="20" step="1" id="acompañantes" name="name">
+			</p>
+				<p>
+				<label for="n1">*¿Cuántos días estará de viaje?</label>&nbsp;
+					<input type="number" min="1" max="20" step="1" id="dias" name="name">&nbsp;&nbsp;
+				
+				<label for="n1">*¿Y durante cuántas noches se quedará hospedado?</label> &nbsp;
+					<input type="number" min="1" max="20" step="1" id="noches" name="name">
+
+			</p>
+			
+				<div class="form-group col-md-6">
+					<div class="form-check">
+						<label class="form-check-label" for="defaultCheck1">Por un costo extra incluira el desayuno, ¿Desea agregarlo? </label>
+							<input class="form-check-input" type="checkbox" value="" id="Desayuno">
+						
+					</div>
+				</div>
+				
+				<div class="form-group col-md-6">
+					<div class="form-check">
+						<label class="form-check-label" for="defaultCheck1">Por un costo extra incluira la comida, ¿Desea agregarlo? </label>
+								<input class="form-check-input" type="checkbox" value="" id="Cena">
+									
+					</div>
+					
+					<div class="form-group col-md-6">
+						<div class="form-check">
+							<label class="form-check-label" for="defaultCheck1">Por un costo extra incluira la cena, ¿Desea agregarlo? </label>
+								<input class="form-check-input" type="checkbox" value="" id="Comida">
+									
+							</div><br><br>
+					  <center><button type="submit" class="btn btn-primary mb-2">Cotizar</button></center>
+					  
+		</form>
+	</fieldset>	
+				 <b><p align="right"><font face= "Courier New">Todo bien? Todo correcto?<br>Por Itzel Alejandra Monroy Alvarez</b>
+			 
+			<script>
+			function calculos(){
+			
+				var total = 0;
+				
+					const preciodia=250;
+					const precionoche=250;
+					const precioavion=5000;
+					const preciotren=1000;
+					const precioautobus=500;
+					const preciocena=450;
+					const preciodesayuno=200;
+					const preciocomida=500;
+				
+				var dias=document.getElementById('dias').value;
+				var noche=document.getElementById('noches').value;
+				var transporte=document.getElementById('transporte').value;
+				var cena=document.getElementById('Cena').checked;;
+				var desayuno=document.getElementById('Desayuno').checked;;
+				var comida=document.getElementById('Comida').checked;;
+				
+				total=dias*preciodia;
+				total+=noche*precionoche;
+				
+				if(transporte!=0){
+					if(transporte == 1){
+						total=total + precioautobus;
+					}
+					
+					else if (transporte == 2){
+						total = total + preciotren;
+					}
+					
+					else if (transporte == 3){
+						total = total + precioavion;
+					}
+					}
+				
+				if (desayuno ==true){
+					total=total+preciodesayuno;
+						}
+				if (comida==true){
+					total=total+preciocomida;
+						}
+				if (cena==true) {
+					total=total + preciocena;
+						}
+					alert("Con una cotización del:  " + total);
+						
+						
+						
+				return false;
+			}
+		</script>
+		
+	</body>
+</html>
